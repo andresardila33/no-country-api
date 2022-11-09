@@ -22,4 +22,26 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# NO-COUNTRY-API
+
+1. Clonar proyecto
+
+2. Para la instalación de paquetes globales usar ```npm```, para la instalación de paquetes locales utilizar ```yarn```, si no se cuenta con el manejador de paquetes ejecutar: ```npm install --global yarn```
+
+3. Clonar el archivo ```.env.template``` y renombrarlo a ```.env```
+
+4. Cambiar las variables de entorno
+
+5. El ORM configurado en el proyecto es ```TypeOrm```, la base de datos configurada en el ```docker-compose.yaml``` es ```Mysql``` y como interfaz gráfica ```phpmyadmin```
+
+6. Levantar la base de datos
+```
+docker-compose up -d
+```
+
+7. Levantar el servidor en modo desarrollo:
+ ```
+ yarn start:dev
+ ```
+
 

@@ -6,11 +6,11 @@ import {
   Param,
   Delete,
   Put,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 //import { LoginUserDto } from './dto';
-import { CreateUserDto } from './dto';
-import { UpdateUserDto } from './dto';
+import { CreateUserDto, UpdateUserDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -31,18 +31,21 @@ export class AuthController {
     return this.authService.findAll();
   }
 
-  @Get('users/:id')
-  findOne(@Param('id') id: string) {
-    return this.authService.findOne(id);
+  @Get('users/:term')
+  findOne(@Param('term') term: string) {
+    return this.authService.findOne(term);
   }
 
   @Put('users/:id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ) {
     return this.authService.update(id, updateUserDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete('users/:id')
+  remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.authService.remove(id);
   }
 }
